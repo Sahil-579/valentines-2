@@ -37,10 +37,19 @@
             background-color: gray;
             color: white;
         }
+        .side-gif {
+    position: absolute;
+    right: 20px; /* Adjust for spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px; /* Adjust size */
+    height: auto;
+}
     </style>
 </head>
 <body>
     <h1>Will you be my Valentine?</h1>
+    <img src="itsv2.gif" alt="Valentine GIF" class="side-gif">
     <div class="buttons">
         <button class="yes" onclick="alert('Yay! ❤️')">Yes</button>
         <button class="busy" onclick="alert('Maybe next time 😢')">I'm Busy</button>

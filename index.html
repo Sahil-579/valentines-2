@@ -49,6 +49,16 @@
             height: 110px;
             font-size: 38px;
         }
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 20px;
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
         .secret {
             display: none;
             font-size: 30px;
@@ -67,8 +77,19 @@
     <!-- Secret Message -->
     <p id="secret-message" class="secret">I knew you'd say yes! ❤️</p>
 
+    <!-- Background Music -->
+    <audio id="bg-music" loop autoplay>
+        <source src="httyd.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <button class="music-btn" onclick="toggleMusic()">🔊 Pause Music</button>
+
     <script>
         let clickCount = 0;
+        let music = document.getElementById("bg-music");
+        let musicBtn = document.querySelector(".music-btn");
 
         function revealSecret() {
             clickCount++;
@@ -76,6 +97,16 @@
                 document.getElementById("secret-message").style.display = "block";
             }
             alert('LESSS GOOO');
+        }
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = "🔊 Pause Music";
+            } else {
+                music.pause();
+                musicBtn.innerHTML = "🎵 Play Music";
+            }
         }
     </script>
 </body>

@@ -31,17 +31,15 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: 0.3s ease-in-out;
         }
         .yes {
             position: relative;
             top: 52vh;
-            background-color: #66c2ff; /* Light Blue */
+            background-color: #ff4d4d;
             color: white;
             height: 110px;
             width: 300px;
             font-size: 40px;
-            transition: 0.3s ease-in-out;
         }
         .busy { 
             position: relative;
@@ -50,15 +48,6 @@
             color: white;
             height: 110px;
             font-size: 38px;
-            transition: 0.3s ease-in-out;
-        }
-        .side-gif {
-            position: absolute;
-            right: 8px;
-            top: 15%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
         }
         .music-btn {
             position: fixed;
@@ -70,42 +59,26 @@
             padding: 10px 15px;
             border-radius: 10px;
         }
-            h1 {
-                font-size: 80px; /* Larger text */
-                top: 40vh; /* Adjusted position */
-            }
-            .yes, .busy {
-                height: 120px;
-                width: 350px;
-                font-size: 45px;
-            }
-            .side-gif {
-                right: 20px;
-                top: 10%;
-                width: 400px;
-                height: 400px;
-            }
-            .buttons {
-                margin-top: 30px;
-            }    
     </style>
 </head>
 <body>
     <h1>Will you be my Valentine?</h1>
-    <img src="itsv2.gif" alt="Valentine GIF" class="side-gif">
     <div class="buttons">
-        <button class="yes" onclick="alert('LESSS GOOO')">Yeah 😋</button>
+        <button class="yes" onclick="showLove()">Yeah 😋</button>
         <button class="busy" onclick="alert('tutha hua 😔')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
     </div>
 
     <!-- Background Music -->
-    <audio id="bg-music" loop autoplay>
+    <audio id="bg-music" loop>
         <source src="httyd.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <!-- Music Control Button -->
     <button class="music-btn" onclick="toggleMusic()">🔊 Pause Music</button>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
 
     <script>
         let music = document.getElementById("bg-music");
@@ -119,6 +92,26 @@
                 music.pause();
                 musicBtn.innerHTML = "🎵 Play Music";
             }
+        }
+
+        // Auto-play music after user interaction
+        document.addEventListener("click", () => {
+            if (music.paused) {
+                music.play();
+            }
+        }, { once: true });
+
+        // Auto Fullscreen Mode
+        document.addEventListener("click", () => {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+        }, { once: true });
+
+        // Confetti Effect on "Yeah 😋" Click
+        function showLove() {
+            confetti();
+            alert('LESSS GOOO');
         }
     </script>
 </body>

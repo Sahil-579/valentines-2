@@ -31,15 +31,22 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: 0.3s ease-in-out;
         }
         .yes {
             position: relative;
             top: 52vh;
-            background-color: #ff4d4d;
+            background-color: #66c2ff; /* Light Blue */
             color: white;
             height: 110px;
             width: 300px;
             font-size: 40px;
+            transition: 0.3s ease-in-out;
+        }
+        .yes:hover {
+            background-color: #3399ff;
+            transform: scale(1.1);
+            animation: shake 0.3s ease-in-out;
         }
         .busy { 
             position: relative;
@@ -48,6 +55,19 @@
             color: white;
             height: 110px;
             font-size: 38px;
+            transition: 0.3s ease-in-out;
+        }
+        .busy:hover {
+            background-color: #4d4d4d;
+            transform: scale(1.1);
+        }
+        .side-gif {
+            position: absolute;
+            right: 8px;
+            top: 15%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
         }
         .music-btn {
             position: fixed;
@@ -59,23 +79,24 @@
             padding: 10px 15px;
             border-radius: 10px;
         }
-        .secret {
-            display: none;
-            font-size: 30px;
-            margin-top: 20px;
-            color: yellow;
+
+        /* Shake animation */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
     </style>
 </head>
 <body>
     <h1>Will you be my Valentine?</h1>
+    <img src="itsv2.gif" alt="Valentine GIF" class="side-gif">
     <div class="buttons">
-        <button class="yes" onclick="revealSecret()">Yeah 😋</button>
+        <button class="yes" onclick="alert('LESSS GOOO')">Yeah 😋</button>
         <button class="busy" onclick="alert('tutha hua 😔')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
     </div>
-
-    <!-- Secret Message -->
-    <p id="secret-message" class="secret">hehe so many yes'es 😋</p>
 
     <!-- Background Music -->
     <audio id="bg-music" loop autoplay>
@@ -87,17 +108,8 @@
     <button class="music-btn" onclick="toggleMusic()">🔊 Pause Music</button>
 
     <script>
-        let clickCount = 0;
         let music = document.getElementById("bg-music");
         let musicBtn = document.querySelector(".music-btn");
-
-        function revealSecret() {
-            clickCount++;
-            if (clickCount === 3) {
-                document.getElementById("secret-message").style.display = "block";
-            }
-            alert('LESSS GOOO');
-        }
 
         function toggleMusic() {
             if (music.paused) {

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             overflow: hidden;
-            text-align: center;
+            text-align: center; /* Centers text content */
         }
         .buttons {
             margin-top: 20px;
@@ -62,27 +63,9 @@
 <body>
     <h1>Will you be my Valentine?</h1>
     <img src="itsv2.gif" alt="Valentine GIF" class="side-gif">
-    
     <div class="buttons">
-        <button class="yes" onclick="sendResponse('Yes')">Yeah 😋</button>
-        <button class="busy" onclick="sendResponse('Busy')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
+        <button class="yes" onclick="alert('LESSS GOOO')">Yeah 😋</button>
+        <button class="busy" onclick="alert('tutha hua 😔')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
     </div>
-
-    <script>
-    function sendResponse(choice) {
-        fetch("https://script.google.com/macros/s/AKfycbxgcouB5oyQEGhGV-VOUwHbJMteoQmGxfMuzLBiRWLvJTOMCD0lERAGD10E_wusCfUFGg/exec", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ response: choice }),
-            mode: "cors" // 🔥 Allows cross-origin requests
-        })
-        .then(response => response.json())
-        .then(data => alert("Response saved: " + data.status))
-        .catch(error => console.error("Error:", error));
-    }
-    </script>
-
 </body>
 </html>

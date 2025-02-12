@@ -41,7 +41,7 @@
             width: 300px;
             font-size: 40px;
         }
-        .busy { 
+        .busy {
             position: relative;
             top: 53.15vh;
             background-color: gray;
@@ -64,6 +64,37 @@
             font-size: 30px;
             color: yellow;
             margin-top: 60px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            margin: 20% auto;
+        }
+        .close {
+            cursor: pointer;
+            font-size: 20px;
+            color: red;
         }
     </style>
 </head>
@@ -71,7 +102,7 @@
     <h1>Will you be my Valentine?</h1>
     <div class="buttons">
         <button class="yes" onclick="showLove()">Yeah 😋</button>
-        <button class="busy" onclick="alert('tutha hua 😔')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
+        <button class="busy" onclick="showBusyMessage()">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
     </div>
 
     <p id="secret-msg" class="secret-msg">hehe so many yes's 😋</p>
@@ -84,6 +115,22 @@
 
     <!-- Music Control Button -->
     <button class="music-btn" onclick="toggleMusic()">🔊 Pause Music</button>
+
+    <!-- Pop-up Modal -->
+    <div id="loveModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>LESSS GOOO! 💖</p>
+        </div>
+    </div>
+
+    <!-- Pop-up Modal for Busy Button -->
+    <div id="busyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBusyModal()">&times;</span>
+            <p>tutha hua 😔</p>
+        </div>
+    </div>
 
     <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
@@ -109,16 +156,29 @@
                 music.play();
             }
         }, { once: true });
-        // Confetti Effect & Secret Message Reveal
+
+        // Show Modal, Confetti & Secret Message
         function showLove() {
+            document.getElementById("loveModal").style.display = "block";
             confetti();
             yesClickCount++;
 
             if (yesClickCount >= 3) {
                 document.getElementById("secret-msg").style.display = "block";
             }
+        }
 
-            alert('LESSS GOOO');
+        // Show Busy Modal
+        function showBusyMessage() {
+            document.getElementById("busyModal").style.display = "block";
+        }
+
+        // Close Modals
+        function closeModal() {
+            document.getElementById("loveModal").style.display = "none";
+        }
+        function closeBusyModal() {
+            document.getElementById("busyModal").style.display = "none";
         }
     </script>
 </body>

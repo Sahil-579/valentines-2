@@ -6,39 +6,32 @@
     <title>Valentine's Day</title>
     <style>
         h1 {
-    position: relative; /* Instead of fixed */
-    font-size: 60px;
-    margin-top: 100px; /* Adjusted positioning */
-    text-align: center;
+            font-size: 60px;
+            margin-top: 100px; /* Moves the h1 down */
+            text-align: center;
         }
         body {
             background: url('too.gif') no-repeat center center fixed;
             background-size: cover;
             background-position: top center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
             font-family: Century, sans-serif;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             overflow: hidden;
+            text-align: center; /* Centers text content */
         }
         .buttons {
             margin-top: 20px;
         }
         button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .yes {
-            position: relative;
-            top: 160px;
             background-color: #ff4d4d;
             color: white;
             height: 110px;
@@ -46,22 +39,19 @@
             font-size: 40px;
         }
         .busy { 
-            position: relative;
-            top: 180px;
             background-color: gray;
             color: white;
             height: 110px;
             font-size: 38px;
-            
         }
         .side-gif {
-    position: absolute;
-    right: 8px; /* Adjust for spacing */
-    top: 15%;
-    transform: translateY(-50%);
-    width: 300px; /* Adjust size */
-    height: 300px;
-}
+            position: absolute;
+            right: 8px;
+            top: 15%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+        }
     </style>
 </head>
 <body>

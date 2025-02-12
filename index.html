@@ -76,11 +76,11 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ response: choice }),
-            mode: "cors" // 🔥 Allows Cross-Origin Requests
+            mode: "cors" // 🔥 Allows cross-origin requests
         })
-        .then(response => response.text())
-        .then(data => alert(data)) // Shows success or error message
-        .catch(error => alert("Error: " + error));
+        .then(response => response.json())
+        .then(data => alert("Response saved: " + data.status))
+        .catch(error => console.error("Error:", error));
     }
     </script>
 

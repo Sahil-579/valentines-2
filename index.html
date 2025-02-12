@@ -69,16 +69,19 @@
     </div>
 
     <script>
-        function sendResponse(choice) {
-            fetch("https://script.google.com/macros/s/AKfycbxgcouB5oyQEGhGV-VOUwHbJMteoQmGxfMuzLBiRWLvJTOMCD0lERAGD10E_wusCfUFGg/exec", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ response: choice })
-            })
-            .then(response => response.text())
-            .then(data => alert("Response recorded: " + data))
-            .catch(error => console.error("Error:", error));
-        }
+    function sendResponse(choice) {
+        fetch("YOUR_WEB_APP_URL", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ response: choice }),
+            mode: "cors" // 🔥 Allows Cross-Origin Requests
+        })
+        .then(response => response.text())
+        .then(data => alert(data)) // Shows success or error message
+        .catch(error => alert("Error: " + error));
+    }
     </script>
 
 </body>

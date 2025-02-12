@@ -49,6 +49,14 @@
             height: 110px;
             font-size: 38px;
         }
+        .side-gif {
+            position: absolute;
+            right: 8px;
+            top: 15%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+        }
         .music-btn {
             position: fixed;
             bottom: 20px;
@@ -63,6 +71,7 @@
 </head>
 <body>
     <h1>Will you be my Valentine?</h1>
+    <img src="itsv2.gif" alt="Valentine GIF" class="side-gif">
     <div class="buttons">
         <button class="yes" onclick="alert('LESSS GOOO')">Yeah 😋</button>
         <button class="busy" onclick="alert('tutha hua 😔')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
@@ -77,10 +86,8 @@
     <!-- Music Control Button -->
     <button class="music-btn" onclick="toggleMusic()">🔊 Pause Music</button>
 
-    
-     <style>
-
-            let music = document.getElementById("bg-music");
+    <script>
+        let music = document.getElementById("bg-music");
         let musicBtn = document.querySelector(".music-btn");
 
         function toggleMusic() {
@@ -92,6 +99,6 @@
                 musicBtn.innerHTML = "🎵 Play Music";
             }
         }
-     </style>
+    </script>
 </body>
 </html>

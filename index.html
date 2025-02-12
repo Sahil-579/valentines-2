@@ -43,11 +43,6 @@
             font-size: 40px;
             transition: 0.3s ease-in-out;
         }
-        .yes:hover {
-            background-color: #3399ff;
-            transform: scale(1.1);
-            animation: shake 0.3s ease-in-out;
-        }
         .busy { 
             position: relative;
             top: 53.15vh;
@@ -56,10 +51,6 @@
             height: 110px;
             font-size: 38px;
             transition: 0.3s ease-in-out;
-        }
-        .busy:hover {
-            background-color: #4d4d4d;
-            transform: scale(1.1);
         }
         .side-gif {
             position: absolute;
@@ -79,18 +70,6 @@
             padding: 10px 15px;
             border-radius: 10px;
         }
-
-        /* Shake animation */
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
-
-        /* Adjust for Laptops (Screens wider than 768px) */
-        @media screen and (min-width: 768px) {
             h1 {
                 font-size: 80px; /* Larger text */
                 top: 40vh; /* Adjusted position */
@@ -108,8 +87,7 @@
             }
             .buttons {
                 margin-top: 30px;
-            }
-        }
+            }    
     </style>
 </head>
 <body>

@@ -88,6 +88,28 @@
             75% { transform: translateX(-5px); }
             100% { transform: translateX(0); }
         }
+
+        /* Adjust for Laptops (Screens wider than 768px) */
+        @media screen and (min-width: 768px) {
+            h1 {
+                font-size: 80px; /* Larger text */
+                top: 40vh; /* Adjusted position */
+            }
+            .yes, .busy {
+                height: 120px;
+                width: 350px;
+                font-size: 45px;
+            }
+            .side-gif {
+                right: 20px;
+                top: 10%;
+                width: 400px;
+                height: 400px;
+            }
+            .buttons {
+                margin-top: 30px;
+            }
+        }
     </style>
 </head>
 <body>

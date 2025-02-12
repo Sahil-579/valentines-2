@@ -18,6 +18,7 @@
             font-family: Century, sans-serif;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
             text-align: center;
         }
         .buttons {
@@ -48,6 +49,14 @@
             height: 110px;
             font-size: 38px;
         }
+        .side-gif {
+            position: absolute;
+            right: 8px;
+            top: 15%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+        }
         .music-btn {
             position: fixed;
             bottom: 20px;
@@ -58,14 +67,23 @@
             padding: 10px 15px;
             border-radius: 10px;
         }
+        .secret-msg {
+            display: none;
+            font-size: 30px;
+            color: yellow;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Will you be my Valentine?</h1>
+    <img src="itsv2.gif" alt="Valentine GIF" class="side-gif">
     <div class="buttons">
         <button class="yes" onclick="showLove()">Yeah 😋</button>
         <button class="busy" onclick="alert('tutha hua 😔')">I'm Busy ✋🙄 <br> (are you really 👉👈🥺)</button>
     </div>
+
+    <p id="secret-msg" class="secret-msg">hehe so many yes's 😋</p>
 
     <!-- Background Music -->
     <audio id="bg-music" loop>
@@ -82,6 +100,7 @@
     <script>
         let music = document.getElementById("bg-music");
         let musicBtn = document.querySelector(".music-btn");
+        let yesClickCount = 0;
 
         function toggleMusic() {
             if (music.paused) {
@@ -107,9 +126,15 @@
             }
         }, { once: true });
 
-        // Confetti Effect on "Yeah 😋" Click
+        // Confetti Effect & Secret Message Reveal
         function showLove() {
             confetti();
+            yesClickCount++;
+
+            if (yesClickCount >= 3) {
+                document.getElementById("secret-msg").style.display = "block";
+            }
+
             alert('LESSS GOOO');
         }
     </script>
